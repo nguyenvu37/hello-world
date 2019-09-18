@@ -1,0 +1,480 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+}
+html{
+    font-size: 15px;
+}
+body{
+    max-width: 1920px;
+    min-width: 510px;
+    /* font-size: 15px; */
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Merienda',serif;
+    background-color: #fff;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 500;
+}
+h3{
+    font-size: 1.75em;
+    font-weight: 500;
+    margin-top: 5px;
+}
+h4{
+    font-size: 1.5em;
+    padding-left: 20px;
+    /* background-color: brown; */
+}
+.container{
+    width: 100%;
+}
+/* ----------HEADER----------- */
+header{
+    width: 100%;
+    height: 77px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 0px; */
+    position: fixed;
+    z-index: 100;
+    background-color:#F8F9FA;
+}
+.logo a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:#181818;
+}
+.logo a img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.navbar ul{
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: rgb(230, 176, 176); */
+    list-style: none;
+    padding:5px 0;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: gray;
+    font-size: 1rem;
+    padding: 5px 10px;
+    /* background-color: aquamarine; */
+    
+}
+.navbar ul li a:hover{
+   color: #181818;
+}
+.navbar ul li a:visited{
+    background-color:#D3D3D3;
+ }
+.navbar ul li a:active{
+    background-color:#D3D3D3;
+ }
+ 
+
+.navbar ul li{
+    padding: 5px 10px;
+}
+.pic-language{
+    width: 20px;
+    height: 20px;
+}
+.navbar-hidden{
+    font-size: 2em;
+    display: none;
+}
+.navbar-hidden:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+/* ----------------BANNER-------------- */
+.banner{
+    width: 100%;
+    height: 1200px;
+    text-align: center;
+    padding-top:400px;
+    /* position: relative; */
+    background-image: url(./img/slider1.jpg);
+    background-size: 100% 100%;
+    /* vertical-align: middle; */
+}
+.banner p{
+    font-size: 5em;
+    color:white;
+}
+/* --------------MAIN-------------- */
+main{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    /* background-color: blue; */
+    
+}
+
+
+/* -------------RESTAURANT------------- */
+.restaurant{
+    width: 100%;
+    height: auto;
+    background-color:#F8F9FA;
+}
+.title{
+    width: 100%;
+    height: 100px;
+    padding-top:50px;
+    text-align: center;
+}
+
+.res-row1{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}
+.res-content{
+    width: 50%;
+    height: 100%;
+    padding-left: 2.5%;
+    /* background-color: yellow; */
+}
+.res-new{
+    font-size: 1em;
+    padding-top:5px;
+    padding-bottom: 15px;
+}
+
+.res-picture{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+
+.res-pic{
+    width: 90%;
+    height: 90%;
+    
+}
+.res-row2{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    /* background-color: chartreuse; */
+}
+
+/* ---------------MENU--------------- */
+.menu{
+    width: 100%;
+    height: auto;
+   
+    /* background-color: yellowgreen; */
+}
+.menu-box{
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f9fa ;
+    
+    /* background-color: aquamarine; */
+}
+.detail-menu{
+    width: 31%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 3%;
+    border: 1px solid rgb(196, 190, 190);
+    
+    /* background-color: bisque; */
+}
+
+.menu-pic{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.menu-list{
+    list-style: none;
+    font-size: 1em;
+    line-height: 3em;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;  
+}
+.menu-list:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.menu-list li{
+    margin: 0 20px;
+    padding-left: 10px;
+    height: auto;
+    /* background-color: brown; */
+    border-top: 1px solid rgb(196, 190, 190);
+    
+}
+/* -------------RESERVATION--------- */
+.reservation{
+    width: 100%;
+    /* height: auto; */
+    margin-top:50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.reservation-big-img{
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+
+}
+.reservation-img{
+    width: 100%;
+    opacity: 0.4;
+}
+.reser-text{
+    width: 100%;
+    position: absolute;
+    top:20%;
+    transform: translate(0%,-50%);
+    
+}
+.timetable{
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+  
+}
+.lunch-dinner{
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 600;
+    justify-content: space-around;
+    
+    
+}
+.time{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ------------FORM---------------- */
+.reserve-form{
+    width: 100%;
+    /* height: 500px; */
+    margin-top:15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:15px 15px;
+    background-color: rgb(245, 241, 241);
+
+}
+.resever{
+    width: 49%;
+    /* height: 280px; */
+    /* background-color: rgb(61, 138, 112); */
+}
+.reserve-form h3{
+    margin-bottom: 15px;
+}
+.detail{
+    width: 49%;
+    /* height: 280px; */
+    /* background-color: rgb(137, 158, 151); */
+}
+.form-title{
+    /* margin-top:10px; */
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.form-input{
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+    font-family: 'Merienda',serif;
+    padding-left: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+}
+.form-input:focus{
+    outline: none;
+    border: 2px solid rgb(150, 150, 230);
+}
+.futher-requests{
+    width: 100%;
+    /* height: 190px; */
+    /* background-color: rgb(58, 63, 61); */
+}
+.futher-requests form{
+    width: 100%;
+    /* background-color: aquamarine; */
+}
+textarea{
+   min-height: 50px;
+   width: 100%;
+   resize: vertical;
+   border-radius: 5px;
+   padding-left: 5px;
+   font-size: 1rem;
+    font-family: 'Merienda',serif;
+}
+textarea:focus{
+    outline: none;
+    border: 2px solid rgb(150, 150, 230);
+}
+.btn{
+    width: 35%;
+    height: 35px;
+    background-color: #6C757D;
+    color: white;
+    font-family: 'Merienda';
+    border: 2px solid #B2B7BC;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding:5px;
+}
+.btn:hover{
+    background-color: rgb(70, 77, 83);
+    cursor: pointer;
+}
+/* ----------------OUR LOCATION----------- */
+.our-location{
+    width: 100%;
+    /* height: 400px; */
+   
+    /* background-color: #6C757D; */
+   
+}
+.location{
+    width: 100%;
+    /* height: 300px; */
+    display: flex;
+    
+}
+.map{
+    width: 70%;
+    height: 300px;
+    /* background-color: aquamarine; */
+}
+iframe{
+    width: 100%;
+    height: 300px;
+}
+.information{
+    width: 30%;
+    height: 300px;
+    padding-left: 20px;
+    /* background-color: chartreuse; */   
+}
+.information p{
+    margin-top:5px;
+    margin-bottom: 15px;
+}
+/* ----------------FOOTER------------ */
+footer{
+    margin: 30px auto;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    padding: 30px 10px;
+    width: 60%;
+    /* height: 100px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    background-color: #F8F9FA;
+}
+.footer-col i{
+    font-size: 2rem;
+    color:#007BFF;
+}
+.footer-col a{
+    text-decoration:none;
+    color:#007BFF;
+}
+.footer-col a:hover{
+    border-bottom: 1px solid #007BFF;
+}
+/* --------------SLIDE----------- */
+
+/* .slider-container{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden; 
+    text-align: center;
+  }
+  
+  .menu {
+    position: absolute;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .menu label {
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50px;
+    margin: 0 .2em 1em;
+    transition: all .3s ease;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    padding: 8em 1em 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: left 0s .75s;
+  }
+  
+  [id^="slide"]:checked + .slide {
+    left: 0;
+    z-index: 100;
+    transition: left .65s ease-out;
+  }
+  
+  .slide-1 {
+    background-image: url("https://source.unsplash.com/t7YycgAoVSw/1600x900");
+  }
+  .slide-2 {
+    background-image: url("https://source.unsplash.com/11H1SSVcIxc/1600x900");
+  }
+  .slide-3 {
+    background-image: url("https://source.unsplash.com/OlZ1nWLEEgM/1600x900");
+  } */
+
+
+
+
+
