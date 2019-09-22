@@ -1,0 +1,112 @@
+*{
+	box-sizing: border-box;
+	margin: auto;
+}
+body{
+	width: 100%;
+	height: 700px;
+	font-family: 'Segoe UI';
+    font-size: 16px;
+	
+}
+#main{
+	width: 70%;
+	height: 700px;
+	/*background-color: red;*/
+	
+}
+.main-left{
+	width: 50%;
+	height: 100%;
+}
+.main-left{	
+	float: left;
+	background-image: url(./img/asphalt.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0px auto;
+	/*background-color: blue;*/
+}
+
+.text{
+	width: 100%;
+    height: 100%;
+    background-color: #000000d9;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text1{
+	display: flex;
+    align-items: baseline;
+    width: 90%;
+
+    max-width: 300px;
+    margin: 20px auto;
+    font-weight: 300;
+}
+.icon {
+    /* display: block; */
+    width: 20%;
+}
+.text12{
+	width: 80%;
+}
+.green{
+	color: green;
+}
+.main-right{
+	width: 50%;
+	height: 100%;
+	float: left;
+	/*background-color: yellow;*/
+}
+form{
+	display: flex;
+	flex-wrap: wrap;
+}
+.send-us{
+	text-align: center;
+	padding: 30px;
+	font-weight: 500;
+}
+.send{
+	width: 90%;
+	height:90px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 20px; 
+}
+.send-text{
+	width: 100%;
+	height: 45px;
+	border: 1px solid #e6e6e6;
+	padding: 12px;
+
+}
+.send-inp{
+	padding: 15px;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+
+}
+.Firstname, .Lastname{
+	width: 50%;
+}
+textarea{
+	width: 100%;
+}
+
+.submitbt {
+    width: 200px;
+    margin: 80px auto ;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #00ad5f;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
