@@ -10,8 +10,9 @@ body{
 	
 }
 #main{
-	width: 70%;
+	width: 80%;
 	height: 700px;
+	margin-top: 5px;
 	/*background-color: red;*/
 	
 }
@@ -78,6 +79,7 @@ form{
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin-bottom: 20px; 
+	padding: 4px;
 }
 .send-text{
 	width: 100%;
@@ -87,7 +89,7 @@ form{
 
 }
 .send-inp{
-	padding: 15px;
+	padding: 12px;
     width: 100%;
     border: 1px solid #e6e6e6;
 
@@ -99,7 +101,7 @@ textarea{
 	width: 100%;
 }
 
-.submitbt {
+.btn {
     width: 200px;
     margin: 80px auto ;
     height: 50px;
@@ -109,4 +111,77 @@ textarea{
     border-radius: 5px;
     color: white;
     border: none;
+}
+@media only screen and (max-width: 1000px){
+	body{
+		font-family: 'Segoe UI';
+    	font-size: 13px;
+	}
+	#main{
+		width: 80%;
+	}
+	h1{
+		font-size: 1.5rem;
+	}
+	.send-inp{
+		font-size: 0.75rem;
+	}
+	.btn {
+    	width: 150px;
+    	margin: 80px auto ;
+    	height: 40px;
+    	font-size: 13px;
+    	font-weight: 500;
+    	background-color: #00ad5f;
+    	border-radius: 5px;
+    	color: white;
+    	border: none;
+	}
+}
+@media only screen and (max-width: 797px){
+	body{
+		width: 100%;
+		font-family: 'Segoe UI';
+    	font-size: 16px;
+	}
+	.text1 {
+    	display: flex;
+    	align-items: baseline;
+    	width: 80%;
+    	max-width: 300px;
+    	margin: 20px auto;
+    	font-weight: 300;
+	}
+	#main{
+		width: 80%;
+	}
+	.main-left {
+    	width: 100%;
+    	height: 500px;
+    	margin-bottom: 30px;
+	}
+	.main-right {
+    	width: 100%;
+    	height: 600px;
+    }
+    h1{
+    	font-size: 1.75rem;
+    }
+    .send {
+    	width: 100%;
+	}
+	.send-us {
+    	text-align: center;
+    	padding: 40px;
+    	font-weight: 500;
+	}
+	.send-inp {
+    font-size: 1rem;
+	}
+
+}
+@media only screen and (max-width: 576px){
+	#main{
+		width: 80%;
+	}
 }
