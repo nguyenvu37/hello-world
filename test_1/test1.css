@@ -1,0 +1,30 @@
+.main{
+	margin-top: 70px;
+}
+.main1-right h2{
+	color: #B40404;
+
+}
+.main1-right a{
+	text-decoration: none;
+	color: white;
+	padding: 10px;
+	border-radius: 60px;
+	background-color: #B40404;
+}
+.main2-left h2{
+	color: #B40404;
+}
+.main2-left a{
+	text-decoration: none;
+	color: white;
+	padding: 10px;
+	border-radius: 60px;
+	background-color: #B40404;
+}
+.btn{
+	text-decoration: none;
+	border-radius: 60px;
+	background-color: #B40404;
+	color: white;
+}
