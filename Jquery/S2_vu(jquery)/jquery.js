@@ -128,7 +128,7 @@ deleteData.on('click', function() {
 })
 
 
-editData.on('click', function edit() {
+editData.on('click', function() {
     let updateCode,
         updateName,
         updateAddress,
@@ -147,11 +147,6 @@ editData.on('click', function edit() {
             arrayError.push(arrayTask[element.dataset.id]);
         }
 
-        if (arrayError.length > 1) {
-            alert('Only receive the value of the radio in the top position');
-            return;
-        }
-
         $('#code').val(updateCode);
         $('#name').val(updateName);
         $('#address').val(updateAddress);
@@ -159,6 +154,12 @@ editData.on('click', function edit() {
         $('#userName').val(updateUserName);
 
     })
+
+    if (arrayError.length > 1) {
+        alert('Only one data item can be selected');
+        location.reload();
+        return;
+    }
 
     $('#saveData').on('click', updateData)
 
