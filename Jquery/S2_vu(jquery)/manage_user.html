@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-3">
+    <title>Manage User</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 my-4">
+                <h1>Users Manager</h1>
+            </div>
+            <div class="col-12">
+                <form>
+                    <div class="row">
+                        <div class="col-6 my-3">
+                            <div class="row my-3">
+                                <label for="name" class="col-3 mr-auto">Name</label>
+                                <input type="text" class="form-control col-6 mr-auto" id="name" placeholder="Jane Doe">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorName" class="col-6 mr-auto"></span>
+                            </div>
+                            <div class="row my-3">
+                                <label for="address" class="col-3 mr-auto">Address</label>
+                                <input type="text" class="form-control col-6 mr-auto" id="address">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorAdress" class="col-6 mr-auto"></span>
+                            </div>
+                            <div class="row my-3">
+                                <label for="password" class="col-3 mr-auto">Password</label>
+                                <input type="password" class="form-control col-6 mr-auto" id="password">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorPass" class="col-6 mr-auto"></span>
+                            </div>
+                        </div>
+                        <div class="col-6 my-3">
+                            <div class="row my-3">
+                                <label for="code" class="col-3 mr-auto">Code</label>
+                                <input type="code" class="form-control col-6 mr-auto" id="code">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorCode" class="col-6 mr-auto"></span>
+                            </div>
+                            <div class="row my-3">
+                                <label for="email" class="col-3 mr-auto">Email</label>
+                                <input type="email" class="form-control col-6 mr-auto" id="email" placeholder="jane.doe@example.com">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorEmail" class="col-6 mr-auto"></span>
+                            </div>
+                            <div class="row my-3">
+                                <label for="userName" class="col-3 mr-auto">User Name</label>
+                                <input type="text" class="form-control col-6 mr-auto" id="userName">
+                                <div class="col-3"></div>
+                                <div class="col-3 my-3"></div>
+                                <span id="errorUserName" class="col-6 mr-auto"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" id="addData" class="btn btn-success mx-2">Add</button>
+                            <button type="button" id="deleteData" class="btn btn-danger mx-2">Delete</button>
+                            <button type="button" id="editData" class="btn btn-info mx-2">Edit</button>
+                            <button type="submit" id="saveData" class="btn btn-primary mx-2">Save</button>
+                            <button type="cancel" id="exit" class="btn btn-warning mx-2">Exit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 my-3">
+                <table class="list" id="dataUsers">
+                    <thead>
+                        <tr>
+                            <th class="px-2"></th>
+                            <th class="py-2">Code</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>User Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <th><input type="radio" id="del"></th>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>User Name</th> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./jquery.js"></script>
+</body>
+
+</html>
