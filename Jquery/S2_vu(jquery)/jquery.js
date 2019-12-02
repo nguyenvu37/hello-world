@@ -67,7 +67,7 @@ function updateData(e) {
 
     Render(dataUsers, arrayTask);
     localStorage.setItem('tasks', JSON.stringify(arrayTask));
-    reloadValue()
+    location.reload();
 }
 
 addTask.on('click', function(e) {
@@ -109,8 +109,8 @@ addTask.on('click', function(e) {
     arrayTask.push(newDataUser);
     Render(dataUsers, arrayTask);
     localStorage.setItem('tasks', JSON.stringify(arrayTask));
-
-    location.reload();
+    reloadValue()
+        // location.reload();
 })
 
 deleteData.on('click', function() {
