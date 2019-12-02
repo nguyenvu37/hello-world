@@ -44,42 +44,6 @@ function reloadValue() {
     $('#password').val('');
 }
 
-function edit() {
-    let updateCode,
-        updateName,
-        updateAddress,
-        updateEmail,
-        updateUserName;
-
-    let arrayError = [];
-
-    document.querySelectorAll('input[data-id]').forEach(function(element) {
-        if (element.checked == true) {
-            updateCode = arrayTask[element.dataset.id].code;
-            updateName = arrayTask[element.dataset.id].name;
-            updateAddress = arrayTask[element.dataset.id].address;
-            updateEmail = arrayTask[element.dataset.id].email;
-            updateUserName = arrayTask[element.dataset.id].userName;
-            arrayError.push(arrayTask[element.dataset.id]);
-        }
-
-        if (arrayError.length > 1) {
-            alert('Only receive the value of the radio in the top position');
-            return;
-        }
-
-        $('#code').val(updateCode);
-        $('#name').val(updateName);
-        $('#address').val(updateAddress);
-        $('#email').val(updateEmail);
-        $('#userName').val(updateUserName);
-
-    })
-
-    $('#saveData').on('click', updateData)
-
-}
-
 function updateData(e) {
     e.preventDefault();
 
@@ -164,7 +128,41 @@ deleteData.on('click', function() {
 })
 
 
-editData.on('click', edit)
+editData.on('click', function edit() {
+    let updateCode,
+        updateName,
+        updateAddress,
+        updateEmail,
+        updateUserName;
+
+    let arrayError = [];
+
+    document.querySelectorAll('input[data-id]').forEach(function(element) {
+        if (element.checked == true) {
+            updateCode = arrayTask[element.dataset.id].code;
+            updateName = arrayTask[element.dataset.id].name;
+            updateAddress = arrayTask[element.dataset.id].address;
+            updateEmail = arrayTask[element.dataset.id].email;
+            updateUserName = arrayTask[element.dataset.id].userName;
+            arrayError.push(arrayTask[element.dataset.id]);
+        }
+
+        if (arrayError.length > 1) {
+            alert('Only receive the value of the radio in the top position');
+            return;
+        }
+
+        $('#code').val(updateCode);
+        $('#name').val(updateName);
+        $('#address').val(updateAddress);
+        $('#email').val(updateEmail);
+        $('#userName').val(updateUserName);
+
+    })
+
+    $('#saveData').on('click', updateData)
+
+})
 
 exitTask.on('click', function() {
     reloadValue()
