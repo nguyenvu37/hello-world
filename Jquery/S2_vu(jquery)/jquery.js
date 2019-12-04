@@ -21,7 +21,7 @@ function DataUsers(code, name, address, email, userName) {
 function Render(containers, items) {
     var htmlItems = arrayTask.map(function(item, index) {
         return '<tr>' +
-            '<th><input type="radio" class="del px-2" data-id="' + index + '" alt="check' + index + '"></th>' +
+            '<th><input type="radio" name="checkbox" class="del px-2" data-id="' + index + '" alt="check' + index + '"></th>' +
             '<th class="py-2">' + item.code + '</th>' +
             '<th>' + item.name + '</th>' +
             '<th>' + item.address + '</th>' +
@@ -35,40 +35,40 @@ function Render(containers, items) {
 
 }
 
-function reloadValue() {
-    $('#code').val('');
-    $('#name').val('');
-    $('#address').val('');
-    $('#email').val('');
-    $('#userName').val('');
-    $('#password').val('');
-}
+// function reloadValue() {
+//     $('#code').val('');
+//     $('#name').val('');
+//     $('#address').val('');
+//     $('#email').val('');
+//     $('#userName').val('');
+//     $('#password').val('');
+// }
 
-function updateData(e) {
-    e.preventDefault();
+// // function updateData(e) {
+// //     e.preventDefault();
 
-    let newCode = $('#code').val();
-    let newName = $('#name').val();
-    let newAddress = $('#address').val();
-    let newEmail = $('#email').val();
-    let newUserName = $('#userName').val();
+// //     let newCode = $('#code').val();
+// //     let newName = $('#name').val();
+// //     let newAddress = $('#address').val();
+// //     let newEmail = $('#email').val();
+// //     let newUserName = $('#userName').val();
 
-    let arrayEdited = new DataUsers(newCode, newName, newAddress, newEmail, newUserName);
+// //     let arrayEdited = new DataUsers(newCode, newName, newAddress, newEmail, newUserName);
 
 
-    document.querySelectorAll('input[data-id]').forEach(function(element) {
-        if (element.checked == true) {
-            selectedIndex = parseInt(element.dataset.id);
-        }
+// //     document.querySelectorAll('input[data-id]').forEach(function(element) {
+// //         if (element.checked == true) {
+// //             selectedIndex = parseInt(element.dataset.id);
+// //         }
 
-    })
+// //     })
 
-    arrayTask.splice(selectedIndex, 1, arrayEdited);
+// //     arrayTask.splice(selectedIndex, 1, arrayEdited);
 
-    Render(dataUsers, arrayTask);
-    localStorage.setItem('tasks', JSON.stringify(arrayTask));
-    location.reload();
-}
+// //     Render(dataUsers, arrayTask);
+// //     localStorage.setItem('tasks', JSON.stringify(arrayTask));
+// //     location.reload();
+// // }
 
 addTask.on('click', function(e) {
     e.preventDefault();
@@ -106,11 +106,27 @@ addTask.on('click', function(e) {
     }
     // End validate
 
-    arrayTask.push(newDataUser);
+    document.querySelectorAll('input[data-id]').forEach(function(element) {
+        if (element.checked == true) {
+            selectedIndex = parseInt(element.dataset.id);
+        }
+
+    })
+
+    if (selectedIndex == -1) {
+        arrayTask.push(newDataUser);
+
+    } else if (selectedIndex !== -1) {
+
+        arrayTask.splice(selectedIndex, 1, newDataUser);
+
+    }
+
+    // arrayTask.push(newDataUser)
     Render(dataUsers, arrayTask);
     localStorage.setItem('tasks', JSON.stringify(arrayTask));
-    reloadValue()
-        // location.reload();
+    // $(':radio:checked').prop('checked', false);
+    $("form").trigger('reset');
 })
 
 deleteData.on('click', function() {
@@ -135,7 +151,7 @@ editData.on('click', function() {
         updateEmail,
         updateUserName;
 
-    let arrayError = [];
+    let checked = $(':radio:checked');
 
     document.querySelectorAll('input[data-id]').forEach(function(element) {
         if (element.checked == true) {
@@ -144,7 +160,7 @@ editData.on('click', function() {
             updateAddress = arrayTask[element.dataset.id].address;
             updateEmail = arrayTask[element.dataset.id].email;
             updateUserName = arrayTask[element.dataset.id].userName;
-            arrayError.push(arrayTask[element.dataset.id]);
+
         }
 
         $('#code').val(updateCode);
@@ -152,19 +168,14 @@ editData.on('click', function() {
         $('#address').val(updateAddress);
         $('#email').val(updateEmail);
         $('#userName').val(updateUserName);
+        checked.parent().parent().hide()
 
     })
 
-    if (arrayError.length > 1) {
-        alert('Only one data item can be selected');
-        location.reload();
-        return;
-    }
-
-    $('#saveData').on('click', updateData)
 
 })
 
 exitTask.on('click', function() {
-    reloadValue()
+    $('#tr:hidden').show();
+    $('form').trigger('reset');
 })
