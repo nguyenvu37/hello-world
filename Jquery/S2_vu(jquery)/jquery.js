@@ -8,7 +8,10 @@ var selectedIndex = -1;
 
 let arrayTask = JSON.parse(localStorage.getItem('tasks')) || [];
 
+let editCommand = false; // khi choised và kích edit mới được phép sửa
+
 Render(dataUsers, arrayTask);
+checkInput();
 
 function DataUsers(code, name, address, email, userName) {
     this.code = code;
@@ -16,6 +19,21 @@ function DataUsers(code, name, address, email, userName) {
     this.address = address;
     this.email = email;
     this.userName = userName;
+}
+
+function checkInput() {
+    $('#name').focus(function() {
+        $('#errorName').text('');
+    })
+
+    $('#code').focus(function() {
+        $('#errorCode').text('');
+    })
+
+    $('#email').focus(function() {
+        $('#errorEmail').text('');
+    })
+
 }
 
 function Render(containers, items) {
@@ -34,41 +52,6 @@ function Render(containers, items) {
 
 
 }
-
-// function reloadValue() {
-//     $('#code').val('');
-//     $('#name').val('');
-//     $('#address').val('');
-//     $('#email').val('');
-//     $('#userName').val('');
-//     $('#password').val('');
-// }
-
-// // function updateData(e) {
-// //     e.preventDefault();
-
-// //     let newCode = $('#code').val();
-// //     let newName = $('#name').val();
-// //     let newAddress = $('#address').val();
-// //     let newEmail = $('#email').val();
-// //     let newUserName = $('#userName').val();
-
-// //     let arrayEdited = new DataUsers(newCode, newName, newAddress, newEmail, newUserName);
-
-
-// //     document.querySelectorAll('input[data-id]').forEach(function(element) {
-// //         if (element.checked == true) {
-// //             selectedIndex = parseInt(element.dataset.id);
-// //         }
-
-// //     })
-
-// //     arrayTask.splice(selectedIndex, 1, arrayEdited);
-
-// //     Render(dataUsers, arrayTask);
-// //     localStorage.setItem('tasks', JSON.stringify(arrayTask));
-// //     location.reload();
-// // }
 
 addTask.on('click', function(e) {
     e.preventDefault();
@@ -117,30 +100,34 @@ addTask.on('click', function(e) {
         arrayTask.push(newDataUser);
 
     } else if (selectedIndex !== -1) {
-
-        arrayTask.splice(selectedIndex, 1, newDataUser);
-
+        if (editCommand == false) {
+            arrayTask.push(newDataUser);
+        } else if (editCommand == true) {
+            arrayTask.splice(selectedIndex, 1, newDataUser);
+        }
     }
 
-    // arrayTask.push(newDataUser)
     Render(dataUsers, arrayTask);
     localStorage.setItem('tasks', JSON.stringify(arrayTask));
-    // $(':radio:checked').prop('checked', false);
     $("form").trigger('reset');
 })
 
 deleteData.on('click', function() {
     let updateArrayTask = [];
-    document.querySelectorAll('input[data-id]').forEach(function(element) {
-        if (element.checked !== true) {
-            updateArrayTask.push(arrayTask[element.dataset.id])
-        }
-    })
-    arrayTask = updateArrayTask;
-    localStorage.setItem("tasks", JSON.stringify(arrayTask));
-    Render(dataUsers, arrayTask);
-    console.log(arrayTask)
+    var checked = $(':radio:checked');
 
+    if (checked.length == 0) alert("Please choise");
+    else {
+        document.querySelectorAll('input[data-id]').forEach(function(element) {
+            if (element.checked !== true) {
+                updateArrayTask.push(arrayTask[element.dataset.id])
+            }
+        })
+        arrayTask = updateArrayTask;
+        localStorage.setItem("tasks", JSON.stringify(arrayTask));
+        Render(dataUsers, arrayTask);
+        console.log(arrayTask)
+    }
 })
 
 
@@ -151,28 +138,31 @@ editData.on('click', function() {
         updateEmail,
         updateUserName;
 
-    let checked = $(':radio:checked');
+    var checked = $(':radio:checked');
 
-    document.querySelectorAll('input[data-id]').forEach(function(element) {
-        if (element.checked == true) {
-            updateCode = arrayTask[element.dataset.id].code;
-            updateName = arrayTask[element.dataset.id].name;
-            updateAddress = arrayTask[element.dataset.id].address;
-            updateEmail = arrayTask[element.dataset.id].email;
-            updateUserName = arrayTask[element.dataset.id].userName;
+    if (checked.length == 0) alert("Please choise");
+    else {
+        document.querySelectorAll('input[data-id]').forEach(function(element) {
+            if (element.checked == true) {
+                updateCode = arrayTask[element.dataset.id].code;
+                updateName = arrayTask[element.dataset.id].name;
+                updateAddress = arrayTask[element.dataset.id].address;
+                updateEmail = arrayTask[element.dataset.id].email;
+                updateUserName = arrayTask[element.dataset.id].userName;
 
-        }
+            }
 
-        $('#code').val(updateCode);
-        $('#name').val(updateName);
-        $('#address').val(updateAddress);
-        $('#email').val(updateEmail);
-        $('#userName').val(updateUserName);
-        checked.parent().parent().hide()
+            $('#code').val(updateCode);
+            $('#name').val(updateName);
+            $('#address').val(updateAddress);
+            $('#email').val(updateEmail);
+            $('#userName').val(updateUserName);
+            checked.parent().parent().hide()
 
-    })
+        })
 
-
+    }
+    editCommand = true;
 })
 
 exitTask.on('click', function() {
